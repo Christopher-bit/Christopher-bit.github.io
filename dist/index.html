@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="王书钰的机器人项目展示：人形机器人 VLA 推理优化、RoboMaster 雷达站与轮腿机器人控制。"
+    />
+    <meta name="theme-color" content="#f6f6f2" />
+    <title>王书钰｜机器人项目</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#projects">跳到项目</a>
+
+    <header class="site-header">
+      <a class="name" href="#top">王书钰</a>
+      <nav aria-label="项目导航">
+        <a href="#internship">01 实习</a>
+        <a href="#radar">02 雷达站</a>
+        <a href="#wheel-leg">03 轮腿</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="intro" aria-labelledby="page-title">
+        <div class="profile-heading">
+          <p>个人信息</p>
+          <h1 id="page-title">王书钰</h1>
+        </div>
+        <div class="profile-details">
+          <p class="profile-role">浙江大学 · 控制科学与工程直博生</p>
+          <dl class="profile-list">
+            <div>
+              <dt>研究方向</dt>
+              <dd>机器人建模、感知与控制；具身智能</dd>
+            </div>
+            <div>
+              <dt>教育经历</dt>
+              <dd>
+                浙江大学 · 控制科学与工程（2022.09–至今）<br />
+                南京航空航天大学 · 自动化（2018.09–2022.06）
+              </dd>
+            </div>
+            <div>
+              <dt>邮箱</dt>
+              <dd><a href="mailto:wshuyu@zju.edu.cn">wshuyu@zju.edu.cn</a></dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <div id="projects">
+        <article class="project" id="internship">
+          <header class="project-header">
+            <p class="index">01 / 实习经历</p>
+            <div>
+              <h2>人形机器人 VLA 推理优化</h2>
+              <p class="meta">南京因克斯智能科技有限公司 · 具身智能部</p>
+              <p class="summary">
+                在 ROS 2 与 Isaac Sim 环境中完成数据采集和推理链路调试，针对模型推理周期与机器人控制周期不一致的问题，
+                实现异步推理及 RTC 实时块化优化。
+              </p>
+            </div>
+          </header>
+
+          <div class="video-grid three-up">
+            <figure>
+              <video controls playsinline preload="metadata">
+                <source src="assets/videos/sync-inference.mp4" type="video/mp4" />
+                当前浏览器不支持视频播放。
+              </video>
+              <figcaption><strong>同步推理</strong><span>基线方案</span></figcaption>
+            </figure>
+            <figure>
+              <video controls playsinline preload="metadata">
+                <source src="assets/videos/async-inference.mp4" type="video/mp4" />
+                当前浏览器不支持视频播放。
+              </video>
+              <figcaption><strong>异步推理</strong><span>推理与控制解耦</span></figcaption>
+            </figure>
+            <figure>
+              <video controls playsinline preload="metadata">
+                <source src="assets/videos/async-rtc.mp4" type="video/mp4" />
+                当前浏览器不支持视频播放。
+              </video>
+              <figcaption><strong>异步推理 + RTC</strong><span>实时块化动作修正</span></figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="project" id="radar">
+          <header class="project-header">
+            <p class="index">02 / 项目经历</p>
+            <div>
+              <h2>RoboMaster 雷达站</h2>
+              <p class="meta">多传感器融合机器人定位系统</p>
+              <a
+                class="project-link"
+                href="https://github.com/nuaa-rm/radar_station2022"
+                target="_blank"
+                rel="noreferrer"
+              >GitHub：nuaa-rm/radar_station2022 <span aria-hidden="true">↗</span></a>
+            </div>
+          </header>
+
+          <div class="radar-overview">
+            <div class="radar-copy">
+              <section>
+                <h3>项目背景</h3>
+                <p>
+                  RoboMaster 赛场环境复杂，机器人之间存在遮挡。雷达站需要持续识别敌方机器人，
+                  将定位结果投影到小地图，为操作手提供全局视野和战术信息。
+                </p>
+              </section>
+              <section>
+                <h3>负责工作</h3>
+                <ul>
+                  <li>负责雷达功能与战术顶层设计、小地图功能开发、部署和调试。</li>
+                  <li>设计两级 YOLOv5 识别流程，依次识别机器人整体、装甲板与数字兵种。</li>
+                  <li>融合双相机图像与激光雷达深度，基于 PnP 解算雷达站位姿和车辆相对位姿。</li>
+                  <li>使用 ROS、OpenCV 和 Qt5 完成系统集成与前端显示。</li>
+                </ul>
+              </section>
+              <p class="result"><strong>项目成果</strong> RoboMaster 全国一等奖、Livox 开源奖。</p>
+            </div>
+            <figure class="hardware-figure">
+              <a href="assets/radar-hardware-structure.png" target="_blank" rel="noreferrer">
+                <img
+                  src="assets/radar-hardware-structure.png"
+                  alt="由双工业相机、上置深度相机和 Livox 激光雷达构成的雷达站硬件结构"
+                  loading="lazy"
+                />
+              </a>
+              <figcaption><strong>雷达站结构</strong><span>相机与激光雷达</span></figcaption>
+            </figure>
+          </div>
+
+          <div class="radar-gallery">
+            <figure>
+              <a href="assets/radar-software-architecture.png" target="_blank" rel="noreferrer">
+                <img src="assets/radar-software-architecture.png" alt="雷达站软件层级与数据流" loading="lazy" />
+              </a>
+              <figcaption><strong>软件层级</strong><span>驱动、数据处理、功能逻辑与前端显示</span></figcaption>
+            </figure>
+            <figure>
+              <a href="assets/radar-runtime-interface.png" target="_blank" rel="noreferrer">
+                <img src="assets/radar-runtime-interface.png" alt="雷达站运行界面与小地图定位结果" loading="lazy" />
+              </a>
+              <figcaption><strong>运行界面</strong><span>赛场画面与小地图定位结果</span></figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="project" id="wheel-leg">
+          <header class="project-header">
+            <p class="index">03 / 项目经历</p>
+            <div>
+              <h2>轮腿机器人动力学建模与控制</h2>
+              <p class="meta">整机建模 · MPC 平衡与移动控制 · 实物验证</p>
+              <p class="summary">
+                面向自主设计的并联轮腿结构，完成整机运动学与动力学建模；基于五连杆等效模型建立 10 维状态空间模型，
+                设计 MPC 算法，并在 Simulink、ROS Webots 和实物平台完成验证。
+              </p>
+            </div>
+          </header>
+
+          <div class="video-grid three-up">
+            <figure>
+              <video controls playsinline preload="metadata">
+                <source src="assets/videos/single-side-bridge.mp4" type="video/mp4" />
+                当前浏览器不支持视频播放。
+              </video>
+              <figcaption><strong>单边桥</strong><span>横滚稳定控制</span></figcaption>
+            </figure>
+            <figure>
+              <video controls playsinline preload="metadata">
+                <source src="assets/videos/stairs-up.mp4" type="video/mp4" />
+                当前浏览器不支持视频播放。
+              </video>
+              <figcaption><strong>上台阶</strong><span>地形适应</span></figcaption>
+            </figure>
+            <figure>
+              <video controls playsinline preload="metadata">
+                <source src="assets/videos/stairs-down.mp4" type="video/mp4" />
+                当前浏览器不支持视频播放。
+              </video>
+              <figcaption><strong>下台阶</strong><span>姿态恢复</span></figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer><span>王书钰</span><span>© <span id="year"></span></span></footer>
+  </body>
+</html>
